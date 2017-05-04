@@ -8,10 +8,10 @@ uniform mat4 modelTransform;
 uniform mat4 viewProjection;
 
 // additional color output for this shader; will be interpolated among the 3 vertices building the triangle
-out vec3 v_color;
+out vec2 v_textcoord;
 
 void main()
 {
-    gl_Position =  viewProjection * modelTransform * vec4(in_vertex, 1.0);
-    v_color = vec4(0.4,0.05,0.12,1);
+    gl_Position =  viewProjection * vec4(in_vertex, 1.0);
+    v_textcoord = vec2(in_vertex.xz);
 }
